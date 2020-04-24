@@ -3,7 +3,7 @@ let net;
 async function app() {
   console.log('Loading mobilenet..');
   // Load the model.
-  net = await tf.loadLayersModel('model.json');//モデルの読み込み
+  net = await tf.loadLayersModel('./model.json');//モデルの読み込み
   console.log('Successfully loaded model');
 	//ラベルファイルの読み込み
 	const CLASSES =await fetch("label.json").then(response =>response.json());
