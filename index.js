@@ -1,4 +1,6 @@
 ﻿const webcamElement = document.getElementById('webcam');
+const WEBCAM_CONFIG = {facingMode: "environment"};//背面のカメラを使う
+
 let net;
 async function app() {
   console.log('Loading mobilenet..');
@@ -7,7 +9,6 @@ async function app() {
   console.log('Successfully loaded model');
 	//ラベルファイルの読み込み
 	const CLASSES =await fetch("label.json").then(response =>response.json());
-	const WEBCAM_CONFIG = {"facingMode": "environment"};//背面のカメラを使う
 	const webcam = await tf.data.webcam(webcamElement,WEBCAM_CONFIG);
 	while (true) {
 	    const imgEl = await webcam.capture();//ウェブカメラからキャプチャする
